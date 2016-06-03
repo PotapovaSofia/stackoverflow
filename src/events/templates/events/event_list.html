@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="events_list__positioner">
+    <div class="events__container col-md-1">
+    {% for event in object_list %}
+        <div class="event__wrap panel panel-default">
+            <div class='events__title'>
+                <a href = "{% url "events:event_detail" pk=event.id %}">{{ event.title }}</a>
+            </div>
+            <div class="panel-body">
+                <div class="event__text">{{ event.text }}</div>
+                <small>
+                    <b>{{ event.author }}</b>&nbsp&nbsp
+                    <cite>{{ event.create_date }}</cite>
+                </small>
+            </div>
+            <div>
+                {% for tag in event.tags.all %}
+                    <span class="label label-default">
+                        {{ tag.name }}
+                    </span>
+                {% endfor %}
+            </div>
+            <!--<div> Комменты( {{ event.comments_count }})</div>-->
+        </div>
+    {% endfor %}
+    </div>
+    <div class="input__container col-md-2"> 
+    {#    {{ form.post }}#}
+    {#    <form action = "">#}
+    {#        <select id="submit__selector" name ="sort_field">#}
+    {#            <option value="id">ID</option>#}
+    {#            <option value="create_date">Дата создания</option>#}
+    {#            <option value="title">Заголовок</option>#}
+    {#            <option value="text">Текст</option>#}
+    {#        </select>#}
+    {#        <input type=submit >#}
+    {#    </form>#}
+    {##}
+    {#    <br>#}
+        <form action = "">
+            <div class="submit__search">
+                {{ form.search|add_class:"form-horizontal form-grey"|append_attr:"placeholder:Search" }}
+            </div>
+            <div class="submit__sort">
+                <!--<label class="filter">Фильтр</label>-->
+                {{ form.sort_field |add_class:"form-horizontal form-grey"}}
+            </div>
+
+            <input class="btn btn-default" id="filter__button" type="submit" value="Filter">
+        </form> 
+        <div class="event__button--add btn btn-primary">
+            <a href='{%url 'events:event_create'%}'>Create post</a>
+        <div>
+    </div>
+</div>
+{% endblock %}
+

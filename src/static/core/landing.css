@@ -1,0 +1,84 @@
+.landing {
+	background: url('img/back.jpg') no-repeat fixed center;
+	background: #999093;
+	background-size: 100%;
+}
+.logo {
+	width: 120px;
+	height: 40px;
+	background-image: url("../img/label.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	margin: auto;
+	margin-bottom: 20px;
+}
+.login__title {
+	font-size: 50px;
+	color: rgba(0,0,0,0.7);
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+#sign-in-form {
+	position: fixed;
+	top: 80px;
+	width: 300px;
+	left: calc((100% - 300px) / 2);
+}
+.hvr-outline-out {
+	background: rgba(0,0,0,0.5);
+}
+.hvr-outline-out::before {
+	border: 4px solid rgba(0,0,0,0.5);
+}
+#login__button {
+	background: #000;
+	opacity: 0.5;
+	width:100%;
+	height: 50px;
+}
+.bit-entry-head {
+	width: 100%;
+	max-width: 520px;
+	padding-top: 20px;
+	margin-bottom: 30px;
+}
+.bit-entry-title {
+	color: #fff;
+}
+.bit-entry-form-row {
+	margin-bottom: 20px;
+}
+.bit-input-login, .bit-input-password {
+	background-color: #fff;
+	box-sizing: border-box;
+	height: 50px;
+	padding-left: 50px;
+	padding-right: 20px;
+	width: 100%;
+	border: 2px solid #fff;
+	opacity: 0.7;
+}
+input.bit-placeholder{
+	color: grey;
+	font-size: 16px;
+	font-family: 'Oswald', sans-serif;
+}
+.bit-button {
+	height: 50px;
+	width: 100%;
+	color: #fff;
+	opacity: 0.9;
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-size: 20px;
+	font-family: Helvetica,Arial,sans-serif;
+	border: 2px solid orange;
+	background-color: orange;
+}
+a.bit-button{
+	padding-top: 17px;
+	color: #fff;
+}

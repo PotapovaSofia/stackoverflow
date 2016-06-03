@@ -1,0 +1,182 @@
+body {
+	background: url('img/back.jpg') no-repeat fixed center;
+	background-size: 100%;
+}
+#background-wrapper {
+	display: none;
+	opacity: 0.8;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 16px;
+	background-color: rgba(1, 1, 1, 1);
+	z-index: 100;
+	overflow: auto;
+}
+.main-background {
+	
+	background-size: cover;
+	font-family: Arial, Tahoma, Verdana;
+	color:#fff;
+	font-size: lem;
+	font-style: normal;
+	font-weight: normal;
+}
+#navbar-wrap {
+	display: block;
+	background-color: #f0f0f0;
+	position: fixed;
+	top: 0;
+	color: #fff;
+
+	width: 100%;
+	height: 60px;
+}
+.navbar-container {
+	box-sizing: border-box;
+	line-height: 15.6px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 20px;
+	position: relative;
+	text-rendering: optimizelegibility;
+	width: 1288px;
+	z-index: 3;
+	color: #000000;
+}
+.navbar-container .logo-container {
+	position: absolute;
+	left: 20px;
+}
+.logo-container .logo-img {
+	position: relative;
+	float: left;
+	margin-right: 20px;
+	margin-top: -20px;
+	width: 60px;
+	height: 60px;
+	background: url('../img/logo.png') center;
+	background-size: 100% 130%;
+}
+.logo-container .logo-text {
+	position: relative;
+	float: left;
+	font-size:	28px;
+	font-family: 'Slabo 27px', serif;
+	color: orange;
+}
+.navbar-container .right-panel {
+	position: absolute;
+    right: 20px;
+}
+.navbar-buttons {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	min-height: 40px;
+	margin-top: 10px;
+}
+.navbar-button {
+	height: 40px;
+	width: 32%;
+	color: black;
+	//background-color: white;	
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+	border: 2px solid #fff;
+}
+.land-content {
+	box-sizing: border-box;
+	color: #FFF;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 12px;
+	left: 0px;
+	line-height: 15.6px;
+	margin: auto;
+	max-width: 1160px;
+	position: relative;
+	right: 0px;
+	text-rendering: optimizelegibility;
+	top: 120px;
+	width: 80;
+}
+#sign-in-form {
+	position: absolute;
+	top: 100px;
+	left: 600px;	
+	color: #FFF;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 12px;
+	line-height: 15.6px;
+	width: 380px;
+	border: 1px solid green;
+}
+#navbar__wrap {
+	display: block;
+	background-color: #d7ccc8;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0.6;
+	width: 100%;
+	height: 60px;
+}
+.logo__container .logo__text {
+	position: relative;
+	float: left;
+	margin: 12px 26px;
+	font-size:	28px;
+	//font-family: 'Slabo 27px', serif;
+	color: #4e342e;
+}
+.bit-entry-head {
+	width: 100%;
+	max-width: 520px;
+	padding-top: 20px;
+	margin-bottom: 30px;
+}
+.bit-entry-title {
+	color: #fff;
+}
+.bit-entry-form-row {
+	margin-bottom: 20px;
+}
+.bit-input-login, .bit-input-password {
+	background-color: #fff;
+	box-sizing: border-box;
+	height: 50px;
+	padding-left: 50px;
+	padding-right: 20px;
+	width: 100%;
+	border: 2px solid #fff;
+	opacity: 0.7;
+}
+input.bit-placeholder{
+	color: grey;
+	font-size: 16px;
+	font-family: 'Oswald', sans-serif;
+}
+.bit-button {
+	height: 50px;
+	width: 100%;
+	color: #fff;
+	opacity: 0.9;
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-size: 20px;
+	font-family: Helvetica,Arial,sans-serif;
+	border: 2px solid orange;
+	background-color: orange;
+}
+a.bit-button{
+	padding-top: 17px;
+	color: #fff;
+}

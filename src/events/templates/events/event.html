@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="event__positioner">
+        <div class="jumbotron" style="padding:30px">
+            <!--
+            {% if user.is_authenticated %}
+                <div class="update__btn" title="Change">
+                    <a href='{%url 'events:event_update' pk=event.id%}'>
+                        <div class="event__button--update"></div>
+                    </a>
+                </div>
+            {%endif%}
+-->
+            <h2 class='event__title'>
+                {{ event.title }}
+            </h2>
+        
+            <p style="font-size:18px">{{ event.text }}</p>
+            <small><b>{{ event.author }}</b>&nbsp&nbsp&nbsp<cite>{{ event.change_date }}</cite></small><br><br>
+            <div class="ico__container">
+                <div id="show__button"></div>
+                {% if user.is_authenticated %}
+                    <div class="update__btn" title="Change">
+                        <a href='{%url 'events:event_update' pk=event.id%}'>
+                            <div class="event__button--update"></div>
+                        </a>
+                    </div>
+                {%endif%}
+                {% include "likes/like_button.html" with object=event %}
+            </div>
+            
+            <div>
+                {% for tag in event.tags.all %}
+                    <span class="label label-default">
+                        {{ tag.name }}
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+       <!-- <div> Комменты( {{ event.comments.all.count }})</div>-->
+        
+        <div id="comments__container">
+        {% for comment in event.comments.all %}
+            <blockquote class="comment">
+            	<p>{{ comment.text }}</p>
+                <small style="font-size:12px">
+                    {{ comment.author }}&nbsp&nbsp
+                    <cite>
+                    	<!--{{ comment.create_date|date:"m - d"  }}-->
+                    	{{ comment.change_date|date:"d.m.y"  }}
+                    </cite>
+                </small>
+        	</blockquote>
+        {% endfor %}
+            <div id="comments-cent-data"
+                data-cent-url="{{ CENTRIFUGE_SOCKJS_ENDPOINT }}"
+                data-cent-user="{{ CENTRIFUGE_USER }}"
+                data-cent-ts="{{ CENTRIFUGE_TIMESTAMP }}"
+                data-cent-info="{{ CENTRIFUGE_INFO }}"
+                data-cent-token="{{ CENTRIFUGE_TOKEN }}"
+                data-cent-channel="{{ event.get_cent_answers_channel_name }}"
+                >
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="jumbotron" style="padding:30px">
+                <form method="post">
+                    {%csrf_token%}
+                    <div>
+                        {{form.text|add_class:"form-horizontal "|append_attr:"placeholder:Comment..."}}
+                    </div>
+                    <div>
+                        <input class="btn btn-primary comment__create" type="submit" value="Send">
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+
+
+
+    <script src="//cdn.jsdelivr.net/sockjs/1.0/sockjs.min.js" type="text/javascript"></script>
+    {% load staticfiles %}
+    <script src="{% static 'js/centrifuge.js' %}"></script>
+    <script src="{% static 'js/answers_subscribe.js' %}"></script>
+
+
+{% endblock %}

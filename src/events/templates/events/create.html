@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="update__positioner">
+    <form method='post' class="form-horizontal">
+        <fieldset>
+        	<script type="text/javascript">
+        		$(function() {
+        			$(".chosen-select").chosen({disable_search_threshold: 10});
+        		});
+        	</script>
+            <!--{{form}}-->
+            <div>
+            	<label>Заголовок: </label>
+            	<div>
+            		{{ form.title |add_class:"form-horizontal" }}
+            	</div>
+            </div>
+            <div>
+            	<label>Текст: </label>
+            	<div>
+            		{{ form.text |add_class:"form-horizontal textarea" }}
+            	</div>
+            </div>
+            <div>
+            	<label>Блог: </label>
+            	<div>
+            		{{ form.blog |add_class:"select" }}
+            	</div>
+            </div>
+        	<div style="margin-top:40px;margin-bottom:30px">
+        		<label>Тэги: </label>
+        		<div>
+        			{{ form.tags|add_class:"select chosen-select"|append_attr:"placeholder: " }}
+        		</div>
+        	</div>
+        	{% csrf_token %}
+            {{form.errors}}
+            <input type="submit" class="btn btn-default" value="Создать пост">
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

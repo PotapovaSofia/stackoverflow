@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+	{% if events %}
+	    <p>Found {{ events|length }} event{{ events|pluralize }}.</p>
+	    <ul>
+	        {% for event in events %}
+	        <li>{{ event.title }}</li>
+	        {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No events matched your search criteria.</p>
+	{% endif %}
+{% endblock %}

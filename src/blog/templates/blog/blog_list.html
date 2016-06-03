@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Мои события{% endblock %}
+
+{% block content %}
+
+<div class="blogs__positioner">
+	<div class="flex-container">
+	{% for blog in object_list %}
+		<div>
+			<a href = "{% url "blog:blog_detail" pk=blog.id %}" style="text-decoration:none">
+			<div class="blog__wrap hvr-grow-shadow" id="{{blog.title}}">
+				<!--{{ blog.pub_date }}<br><div>{{ blog.events_count }}</div>-->
+			    <div>{{ blog.title }}</div>			    
+			</div>
+		</a>
+	    </div>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}
